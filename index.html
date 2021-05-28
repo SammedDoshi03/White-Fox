@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="script.js"></script>
+    <title>Area 51</title>
+</head>
+
+<body>
+    <div class="container">
+        <div class="c1">
+
+            <div class="c11">
+                <h1 class="mainhead">PICK YOUR ORDER</h1>
+                <p class="mainp">EDIT ORDER</p>
+            </div>
+            <div id="left">
+                <h1 class="s1class"><span>EDIT</span><span class="su">ORDER</span>
+                </h1>
+            </div>
+            <div id="right">
+                <h1 class="s2class"><span>PLACE</span><span class="su">ORDER</span></h1>
+            </div>
+        </div>
+        <div class="c2">
+            <form class="signup" method="POST" action="working/insert.php" >
+                <h1 class="signup1">Market</h1>
+                <br><br><br><br>
+                <p class="mainp" style="color: black;">Add your order</p>
+                <input name="product_name" type="text" placeholder="Product name*" class="product"  required/>
+                <input name="product_price" type="text" placeholder="Price*" class="product" required />
+                <input name="product_quantity" type="text" placeholder="Quantity*" class="product"  required/>
+                <button class="btn" name="submit">Place Order</button>
+            </form>
+            <form class="signin" method="POST" action="working/updateanddelete.php">
+                <h1 class="signup1">Edit Order</h1>
+                <br><br><br>
+                <p class="mainp" style="color: black;">Edit your order</p>
+                <input name="product_name" type="text" placeholder="Product name*" class="product"  required/>
+                <input name="product_price" type="text" placeholder="Price*" class="product" />
+                <input name="product_quantity" type="text" placeholder="Quantity*" class="product" />
+                <button class="btn" name="update">Edit Order</button>
+                <button class="btn" name="delete">Delete Order</button>
+                <!-- <a href="working/delete.php?product_name=<?php echo $ProductName?>" name="Del">
+                    <p class="signup2">Delete Order</p>
+                </a> -->
+            </form>
+        </div>
+    </div>
+</body>
+
+<script>
+    $(document).ready(function () {
+        $(".container").fadeIn(1000);
+        $(".s2class").css({ "color": "#EE9BA3" });
+        $(".s1class").css({ "color": "#748194" });
+        $("#left").removeClass("left_hover");
+        $("#right").addClass("right_hover");
+        $(".signin").css({ "display": "none" });
+        $(".signup").css({ "display": "" });
+    });
+    $("#right").click(function () {
+        $("#left").removeClass("left_hover");
+        $(".s2class").css({ "color": "#EE9BA3" });
+        $(".s1class").css({ "color": "#748194" });
+        $("#right").addClass("right_hover");
+        $(".signin").css({ "display": "none" });
+        $(".signup").css({ "display": "" });
+    });
+    $("#left").click(function () {
+        $(".s1class").css({ "color": "#EE9BA3" });
+        $(".s2class").css({ "color": "#748194" });
+        $("#right").removeClass("right_hover");
+        $("#left").addClass("left_hover");
+        $(".signup").css({ "display": "none" });
+        $(".signin").css({ "display": "" });
+    });
+</script>
+
+</html>
